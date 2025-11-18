@@ -13,7 +13,7 @@ def main():
     print("Ví dụ 1: OCR file PNG")
     print("="*50)
     try:
-        image_path = "example.png"  # Thay bằng đường dẫn file PNG của bạn
+        image_path = "image.png"  # Thay bằng đường dẫn file PNG của bạn
         if os.path.exists(image_path):
             text = engine.ocr_image(image_path)
             print(f"\nKết quả OCR:\n{text}")
@@ -27,7 +27,7 @@ def main():
     print("Ví dụ 2: OCR file PDF")
     print("="*50)
     try:
-        pdf_path = "example.pdf"  # Thay bằng đường dẫn file PDF của bạn
+        pdf_path = r"D:\AVE\CV\vca.pdf" # Thay bằng đường dẫn file PDF của bạn
         if os.path.exists(pdf_path):
             text = engine.ocr_pdf(pdf_path)
             print(f"\nKết quả OCR:\n{text}")
@@ -41,7 +41,7 @@ def main():
     print("Ví dụ 3: Tự động nhận diện định dạng")
     print("="*50)
     try:
-        file_path = "example.png"  # Có thể là PDF hoặc PNG
+        file_path = r"D:\AVE\CV\vca.pdf"  # hoặc PNG/JPG  
         if os.path.exists(file_path):
             text = engine.process_file(file_path)
             print(f"\nKết quả OCR:\n{text}")

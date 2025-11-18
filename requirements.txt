@@ -20,5 +20,9 @@ python-multipart==0.0.9
 # --- Khác ---
 requests==2.31.0
 
-# --- PaddleOCR (chỉ wrapper, PaddlePaddle cài riêng) ---
+# --- PaddleOCR & PaddlePaddle ---
+# CHÚ Ý: Chỉ cài paddlepaddle HOẶC paddlepaddle-gpu, không cài cả hai
+# Version 2.5.2 được khuyến nghị vì ổn định hơn, ít lỗi OneDNN
+paddlepaddle==2.5.2  # CPU version (khuyến nghị)
+# paddlepaddle-gpu==2.5.2  # GPU version (uncomment nếu có GPU)
 paddleocr==2.7.2
