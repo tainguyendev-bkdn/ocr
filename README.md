@@ -39,6 +39,86 @@ pip install paddlepaddle-gpu
 
 ## Sử dụng
 
+### Chạy API Server
+
+```bash
+python app.py
+```
+
+Server sẽ chạy tại `http://localhost:8000`
+
+### API Endpoints
+
+#### 1. Kiểm tra trạng thái
+```bash
+GET http://localhost:8000/
+```
+
+#### 2. OCR file hình ảnh (PNG, JPG, JPEG)
+```bash
+POST http://localhost:8000/ocr/image
+Content-Type: multipart/form-data
+Body: file (file upload)
+```
+
+#### 3. OCR file PDF
+```bash
+POST http://localhost:8000/ocr/pdf
+Content-Type: multipart/form-data
+Body: file (file upload)
+```
+
+#### 4. OCR tự động (tự nhận diện định dạng)
+```bash
+POST http://localhost:8000/ocr/auto
+Content-Type: multipart/form-data
+Body: file (file upload)
+```
+
+### Ví dụ sử dụng
+
+#### Sử dụng Python requests:
+```python
+import requests
+
+# OCR file PNG
+with open('image.png', 'rb') as f:
+    response = requests.post('http://localhost:8000/ocr/image', 
+                            files={'file': f})
+    result = response.json()
+    print(result['text'])
+
+# OCR file PDF
+with open('document.pdf', 'rb') as f:
+    response = requests.post('http://localhost:8000/ocr/pdf', 
+                            files={'file': f})
+    result = response.json()
+    print(result['text'])
+```
+
+#### Sử dụng curl:
+```bash
+# OCR file PNG
+curl -X POST "http://localhost:8000/ocr/image" -F "file=@image.png"
+
+# OCR file PDF
+curl -X POST "http://localhost:8000/ocr/pdf" -F "file=@document.pdf"
+```
+
+#### Sử dụng script test:
+```bash
+python test_api.py image.png
+python test_api.py document.pdf
+```
+
+### Sử dụng trực tiếp (không qua API)
+
+Xem file `example_usage.py` để biết cách sử dụng OCR Engine trực tiếp:
+
+```bash
+python example_usage.py
+```
+
 ### Xử lý file PDF
 - Upload file PDF
 - Hệ thống sẽ tự động chuyển đổi các trang PDF thành hình ảnh
