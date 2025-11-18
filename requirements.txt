@@ -1,0 +1,24 @@
+# --- VietOCR ---
+vietocr==0.3.11
+
+# --- ONNX (tuỳ chọn, dùng khi export / chạy onnx) ---
+onnx==1.15.0
+onnxruntime==1.18.0
+
+# --- Xử lý ảnh / PDF ---
+opencv-python==4.6.0.66     # CHÚ Ý: phù hợp với paddleocr 2.7.2
+pillow==10.2.0
+pillow-heif==0.16.0
+numpy==1.26.4
+pymupdf==1.23.26
+
+# --- API / Web ---
+fastapi==0.110.0
+uvicorn==0.29.0
+python-multipart==0.0.9
+
+# --- Khác ---
+requests==2.31.0
+
+# --- PaddleOCR (chỉ wrapper, PaddlePaddle cài riêng) ---
+paddleocr==2.7.2
